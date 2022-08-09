@@ -45,11 +45,11 @@ public class Graph {
 
   public int degree(int node) {
     int countDegree = 0;
-    if(node<0||node>this.countNodes-1){
-      System.err.println("Invalid node: "+node);
+    if (node < 0 || node > this.countNodes - 1) {
+      System.err.println("Invalid node: " + node);
     }
     for (int i = 0; i < this.countNodes; i++) {
-      if(this.adjMatrix[node][i]!=0){
+      if (this.adjMatrix[node][i] != 0) {
         countDegree++;
       }
     }

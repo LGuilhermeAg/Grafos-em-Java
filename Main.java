@@ -12,6 +12,6 @@ class Main {
     // System.out.println(g1);
     g1.addEdges(3, 4, 2);
     System.out.println(g1);
-    System.out.println("Grau do nó 0: "+g1.degree(4));
+    System.out.println("Grau do nó 0: "+g1.degree(0));
   }
 }
