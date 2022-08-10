@@ -10,8 +10,11 @@ class Main {
     // System.out.println(g1);
     g1.addEdges(3, 0, 4);
     // System.out.println(g1);
-    g1.addEdges(3, 4, 2);
+    //g1.addEdges(3, 4, 2);
     System.out.println(g1);
-    System.out.println("Grau do nó 0: "+g1.degree(0));
+    Graph g2=g1.complement();
+    System.out.println(g2);
+    System.out.println("Nó de maior grau: "+g1.highestNode()+" de grau "+g1.highestDegree());
+    System.out.println("Menor grau: "+g1.lowestDegree());
   }
 }
