@@ -93,16 +93,41 @@ public class Graph {
 
   public Graph complement() {
     Graph g = new Graph(this.countNodes);
-    for(int i=0;i<this.adjMatrix.length;i++){
-      for(int j=0;j<this.adjMatrix[i].length;j++){
-        if(i!=j){
-          if(this.adjMatrix[i][j]==0){
-            g.addEdges(i,j,1);
+    for (int i = 0; i < this.adjMatrix.length; i++) {
+      for (int j = 0; j < this.adjMatrix[i].length; j++) {
+        if (i != j) {
+          if (this.adjMatrix[i][j] == 0) {
+            g.addEdges(i, j, 1);
           }
         }
       }
     }
     return g;
+  }
+
+  // 15/8/22
+  public float density() {
+    float density;
+    float edges = this.countEdges;
+    float nodes = this.countNodes;
+    density = (edges) / (nodes * (nodes - 1));
+    return density;
+  }
+
+  public boolean subGraph(Graph g2) {
+
+    if (g2.getCountNodes() > this.countNodes) {
+      return false;
+    }
+    int[][] matriz = g2.getAdjMatrix();
+    for (int i = 0; i < this.adjMatrix.length; i++) {
+      for (int j = 0; j < this.adjMatrix[i].length; j++) {
+        if (matriz[i][j] == 1 && this.adjMatrix[i][j] == 0) {
+          return false;
+        }
+      }
+    }
+    return true;
   }
 
 }

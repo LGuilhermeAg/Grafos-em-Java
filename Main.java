@@ -16,5 +16,7 @@ class Main {
     System.out.println(g2);
     System.out.println("Nó de maior grau: "+g1.highestNode()+" de grau "+g1.highestDegree());
     System.out.println("Menor grau: "+g1.lowestDegree());
+    System.out.println("Densidade: "+g1.density());
+    
   }
 }
