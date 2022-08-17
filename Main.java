@@ -3,14 +3,9 @@ class Main {
     Graph g1 = new Graph(4);
     System.out.println(g1);
     g1.addEdges(0, 1, 3);
-    // System.out.println(g1);
     g1.addEdges(1, 0, 3);
-    // System.out.println(g1);
     g1.addEdges(0, 3, 4);
-    // System.out.println(g1);
     g1.addEdges(3, 0, 4);
-    // System.out.println(g1);
-    //g1.addEdges(3, 4, 2);
     System.out.println(g1);
     Graph g2=g1.complement();
     System.out.println(g2);

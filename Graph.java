@@ -130,4 +130,30 @@ public class Graph {
     return true;
   }
 
+  /*
+pseudocodigo busca por largura em grafos
+maiusculo significa conjunto, minusculo valor||variavel
+origem: breath-first search (BFS) - algoritmo
+
+busca largura(g=(V, E), s){            //recebe um grafo representado como conjunto de vertices e arestas e um vertice origem 
+  para cada v em V{                    //para cada vertice
+    desc[v]=0                          //vetor binário de vértices descobertos ou não descobertos
+    Q={s}                              //cria dois conjuntos com um elemento s(valor da origem): fila (FIFO) de nós a processar
+    R={s}                              //ordem da descoberta (armazena a sequencia de nos processados)
+    desc[s]=1                          //o nó origem foi descoberto
+    enquanto q!=vazio{                 //Enquanto houver nós a processar
+      u=remove primeiro elemento de Q  //remove o primeiro elemento da fila e salva em u (Q={} u=s)
+      para cada v adjacente a u        //proximo nivel de nós adjacentes (conectados por arestas a u)
+        se desc[v]=0{                  //novo elemento descoberto
+          adcione v ao final de Q      //v é mais um elemento Q={v¹,v²,v³...}
+          adcione v ao final de R      //v é mais um elemento processado R={s,v¹,v²,v³...}
+          desc[v]=1                    //v foi descoberto
+        }                
+      }                                //retorna para o while processando a fila composta pelos elementos do proximo nivel 
+    }
+  }                                    //queue termina vazia, R termina cheio e desc termina com todas posicoes = 1
+  retorna R                            //retorna a ordem de descoberta dos nós
+}
+*/
+
 }
