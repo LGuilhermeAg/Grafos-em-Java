@@ -252,4 +252,47 @@ public class Graph {
     return r;
   }
 
+  public boolean nonOriented() {
+    for (int i = 0; i < this.adjMatrix.length; i++) {
+      for (int j = i + 1; j < this.adjMatrix[i].length; j++) {
+        if (this.adjMatrix[i][j] == this.adjMatrix[j][i] && this.adjMatrix[i][j] == 1)
+          return true;
+      }
+    }
+    return false;
+  }
+
+  public ArrayList<Integer> profundidadeRec(int s){
+    int[] desc = new int[this.countNodes];
+    ArrayList<Integer> r = new ArrayList<>();
+    this.profundidadeRecAuxiliar(s,desc,r);
+    return r;
+  }
+
+  public void profundidadeRecAuxiliar(int u, int[] desc, ArrayList<Integer> r){
+    desc[u]=1;
+    r.add(u);
+    for (int v = 0; v < this.adjMatrix[u].length; v++)
+      if (this.adjMatrix[u][v] != 0 && desc[v] == 0) 
+        this.profundidadeRecAuxiliar(v,desc,r);
+  }
+
+  /*
+  dfs rec ( g=VE, s){
+for( v em V){
+  desc[v]= 0
+}
+R={}
+dfs rec aux (s, desc, R)
+return R
+
+dfs rec aux{
+desc[u]
+}
+}
+  }
+*/
+
+  
+
 }
