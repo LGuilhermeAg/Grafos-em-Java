@@ -160,39 +160,6 @@ public class Graph {
     return true;
   }
 
-  /*
-   * 17/8
-   * pseudocodigo busca por largura em grafos
-   * maiusculo significa conjunto, minusculo valor||variavel
-   * origem: breath-first search (BFS) - algoritmo
-   * 
-   * busca largura(g=(V, E), s){ //recebe um grafo representado como conjunto de
-   * vertices e arestas e um vertice origem
-   * para cada v em V{ //para cada vertice
-   * desc[v]=0 //vetor binário de vértices descobertos ou não descobertos
-   * Q={s} //cria dois conjuntos com um elemento s(valor da origem): fila (FIFO)
-   * de nós a processar
-   * R={s} //ordem da descoberta (armazena a sequencia de nos processados)
-   * desc[s]=1 //o nó origem foi descoberto
-   * enquanto q!=vazio{ //Enquanto houver nós a processar
-   * u=remove primeiro elemento de Q //remove o primeiro elemento da fila e salva
-   * em u (Q={} u=s)
-   * para cada v adjacente a u //proximo nivel de nós adjacentes (conectados por
-   * arestas a u)
-   * se desc[v]=0{ //novo elemento descoberto
-   * adcione v ao final de Q //v é mais um elemento Q={v¹,v²,v³...}
-   * adcione v ao final de R //v é mais um elemento processado R={s,v¹,v²,v³...}
-   * desc[v]=1 //v foi descoberto
-   * }
-   * } //retorna para o while processando a fila composta pelos elementos do
-   * proximo nivel
-   * }
-   * } //queue termina vazia, R termina cheio e desc termina com todas posicoes =
-   * 1
-   * retorna R //retorna a ordem de descoberta dos nós
-   * }
-   * 22/8
-   */
   public ArrayList<Integer> buscaLargura(int s) {
 
     int[] desc = new int[this.countNodes];
@@ -262,37 +229,60 @@ public class Graph {
     return false;
   }
 
-  public ArrayList<Integer> profundidadeRec(int s){
+  public ArrayList<Integer> profundidadeRec(int s) {
     int[] desc = new int[this.countNodes];
     ArrayList<Integer> r = new ArrayList<>();
-    this.profundidadeRecAuxiliar(s,desc,r);
+    this.profundidadeRecAuxiliar(s, desc, r);
     return r;
   }
 
-  public void profundidadeRecAuxiliar(int u, int[] desc, ArrayList<Integer> r){
-    desc[u]=1;
+  public void profundidadeRecAuxiliar(int u, int[] desc, ArrayList<Integer> r) {
+    desc[u] = 1;
     r.add(u);
     for (int v = 0; v < this.adjMatrix[u].length; v++)
-      if (this.adjMatrix[u][v] != 0 && desc[v] == 0) 
-        this.profundidadeRecAuxiliar(v,desc,r);
+      if (this.adjMatrix[u][v] != 0 && desc[v] == 0)
+        this.profundidadeRecAuxiliar(v, desc, r);
   }
 
-  /*
-  dfs rec ( g=VE, s){
-for( v em V){
-  desc[v]= 0
-}
-R={}
-dfs rec aux (s, desc, R)
-return R
+  /**
+   * _Dijkstra
+   * > origem unica
+   * > algoritmo guloso
+   * - escolhe sempre a opcao que parece a melhor no momento -- toma uma decisao e
+   * mantem essa decisao até o final independente do proximo passo
+   * > a cada passo busca caminhos melhores a partir de um nó u
+   * 
+   * algoritmo
+   * dijkstra(G=(V,E,w), int s) // agora o grafo e ponderado
+   * para cada v em V
+   * dist[v] = infinito
+   * pred[v]=null
+   * dist[s]=0
+   * Q=V
+   * enquanto q != vazio
+   * u = elemento de menor dist de Q
+   * remova u de Q
+   * para cada v adjacente a u
+   * if(dist[v]>dist[u]+w(u,v))
+   * dist[v]=dist[u]+w(u,v)
+   * pred[u]=v
+   
+  public int[] Dijkstra(int s) {
+    int[] dist = new int[this.countNodes];
+    int[] pred = new int[this.countNodes];
+    for (int i = 0; i < this.adjMatrix.length; i++) {
+      dist[i] = Integer.MAX_VALUE;
+      // pred[i]=null;
+    }
+    dist[s] = 0;
+    ArrayList<Integer> Q = new ArrayList<>();
+    int u;
+    for (int j = 0; j < this.adjMatrix.length; j++)
+      Q.add(j);
+    while (Q.size() != 0) {
+      
+    }
 
-dfs rec aux{
-desc[u]
-}
-}
-  }
-*/
-
-  
+  }*/
 
 }

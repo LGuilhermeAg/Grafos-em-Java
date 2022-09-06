@@ -14,7 +14,7 @@ class Main {
     g1.addEdges(3, 0, 4);
     System.out.println("Grafo g1: \n"+g1);
     Graph g2 = g1.complement();
-    System.out.println("Grafo g2: \n"+g2);
+    System.out.println("Complemento do grafo g1: \n"+g2);
     System.out.println("Nó de maior grau: " + g1.highestNode() + " de grau " + g1.highestDegree());
     System.out.println("Menor grau: " + g1.lowestDegree());
     System.out.println("Densidade: " + g1.density() + "\n\n");
