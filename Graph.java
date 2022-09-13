@@ -285,4 +285,57 @@ public class Graph {
 
   }*/
 
+
+  
+  /*
+public int[] dijkstra(int s){
+  int[] dist = new int[this.countNodes];
+  int[] pred = new int[this.countNodes];
+  for(int i=0;i<this.adjMatrix.length;i++){
+    dist[i] =  Integer.MAX_VALUE;  //Vetor que armazena a distˆancia de s a cada v´ertice
+    //pred[v] = null; . Vetor que armazena o predecessor de cada v´ertice
+  }
+  dist[s] = 0;
+  //Q = V; . Q: //lista dos v´ertices a serem processados
+  while (q.size() > 0) {
+    //u = i|min{dist[i], ∀i ∈ Q}; . u: V´ertice de menor distˆancia em Q
+    //Q = Q − {u}; . Remover u de Q
+    for (int v = 0; v < this.adjMatrix[u].length; v++) {
+      if(dist[v] > dist[u] + w(u, v)){
+        dist[v] = dist[u] + w(u, v);
+        pred[v] = u;
+      } 
+    }
+      
+  }*/
+
+
+
+  /*
+https://moodlepresencial.ufop.br/pluginfile.php/1269620/mod_resource/content/0/A05%20Problema%20do%20Caminho%20M%C3%ADnimo.pdf
+BellmanFord(G(V,E,w),s){
+  int[] dist = new int[this.countNodes];
+  int[] pred = new int[this.countNodes];
+  for(i=0;i<this.countNodes;i++){
+    dist[v]=Integer.MAX_VALUE;
+    pred[v]=null;
+  }
+  dist[s]=0;
+  for(i=0;i<this.adjMatrix.length;i++){
+    para cada (u,v) ∈ E{
+      if(dist[v]>dist[u]+w(u,v)){
+        dist[v]=dist[u]+w(u,v)
+        pred[v]=u
+      }
+    }
+  }
+}
+
+
+*/
+  
+
+
+
+  
 }
