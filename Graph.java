@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Stack;
 
-import com.oracle.truffle.api.dsl.AOTSupport;
+//import com.oracle.truffle.api.dsl.AOTSupport;
 
 import java.io.File;
 import java.io.FileReader;
@@ -337,30 +337,44 @@ BellmanFord(G(V,E,w),s){
 
 */
 
-public void FloydWarshall(){
-  int[][] dist = new int[this.countNodes][this.countNodes];
-  int[][] pred = new int[this.countNodes][this.countNodes];
-  for(int i=0;i<this.adjMatrix.length;i++){
-    for(int j=0;j<this.adjMatrix.length;j++){
-      if(i == j){
-        dist[i][j] = 0;
-      }else if(this.adjMatrix[i][j]!=0){
-        dist[i][j] = this.adjMatrix[i][j];
-        pred[i][j] = i;
-      }else{
-        dist[i][j] = 9999;
+  public void FloydWarshall(){
+    int[][] dist = new int[this.countNodes][this.countNodes];
+    int[][] pred = new int[this.countNodes][this.countNodes];
+    for(int i=0;i<this.adjMatrix.length;i++){
+      for(int j=0;j<this.adjMatrix.length;j++){
+        if(i == j){
+          dist[i][j] = 0;
+        }else if(this.adjMatrix[i][j]!=0){
+          dist[i][j] = this.adjMatrix[i][j];
+          pred[i][j] = i;
+        }else{
+          dist[i][j] = 9999;
+        }
       }
     }
-  }
-  for(int i=0;i<this.adjMatrix.length;i++){
-    for(int j=0;j<this.adjMatrix.length;j++){
-      for(int k=0;k<this.adjMatrix.length;k++){
-        if(dist[i][j] > (dist[i][k] + dist[k][j])){
-        dist[i][j] = dist[i][k] + dist[k][j];
-        pred[i][j] = pred[k][j];
+    for(int i=0;i<this.adjMatrix.length;i++){
+      for(int j=0;j<this.adjMatrix.length;j++){
+        for(int k=0;k<this.adjMatrix.length;k++){
+          if(dist[i][j] > (dist[i][k] + dist[k][j])){
+            dist[i][j] = dist[i][k] + dist[k][j];
+            pred[i][j] = pred[k][j];
+          }
+        }
       }
     }
+    System.out.println("Dist:\n ");
+    for(int i=0;i<this.adjMatrix.length;i++){
+      for(int j=0;j<this.adjMatrix.length;j++){
+        System.out.print("["+dist[i][j]+"] ");
+      }
+      System.out.println("\n");
+    }
+    System.out.println("Pred:\n ");
+    for(int i=0;i<this.adjMatrix.length;i++){
+      for(int j=0;j<this.adjMatrix.length;j++){
+        System.out.print("["+pred[i][j]+"] ");
+      }
+      System.out.println("\n");
+    }
   }
-}
-
 }

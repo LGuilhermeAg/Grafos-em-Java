@@ -6,7 +6,7 @@ import java.io.IOException;
 
 class Main {
   public static void main(String[] args) throws IOException {
-    Graph g1 = new Graph(4);
+    /*Graph g1 = new Graph(4);
     System.out.println("\nInicialização grafo g1: \n"+g1);
     g1.addEdges(0, 1, 3);
     g1.addEdges(1, 0, 3);
@@ -42,7 +42,26 @@ class Main {
     if(g3.nonOriented())
       System.out.println("O grafo g3 nao e orientado");
     else
-      System.out.println("O grafo g3 e orientado");
+      System.out.println("O grafo g3 e orientado");*/
 
+    Graph g4 = new Graph(3);
+    System.out.println("\nInicialização grafo g4: \n"+g4);
+    g4.addEdges(0, 1, 1);
+    g4.addEdges(1, 2, 4);
+    g4.addEdges(2, 1, 3);
+    g4.addEdges(0, 2, 6);
+    System.out.print(g4);
+    g4.FloydWarshall();
+    Graph g5 = new Graph(4);
+    System.out.println("\nInicialização grafo g5: \n"+g5);
+    g5.addEdges(0, 2, 7);
+    g5.addEdges(0, 3, 6);
+    g5.addEdges(0, 1, -1);
+    g5.addEdges(1, 3, 0);
+    g5.addEdges(2, 0, 1);
+    g5.addEdges(2, 1, 4);
+    g5.addEdges(3, 2, -1);
+    System.out.print(g5);
+    g5.FloydWarshall();
   }
 }
