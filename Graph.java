@@ -101,6 +101,49 @@ public class Graph {
     return lowestDegree;
   }
 
+  public Graph complement() {//INCOMPLETA
+    Graph g = new Graph(this.countNodes);
+    for (int i = 0; i < this.adjList.size(); i++) {
+      if(this.adjList.size()>0)
+        for (int j = 0; j < this.adjList.size(); j++)
+          if (this.adjList.get(i).get(j)!=null)
+            g.addEdge(i,j,1);
+    }
+    return g;
+  }
+
+  // public GraphMatrix complement() {
+  // GraphMatrix g = new GraphMatrix(this.countNodes);
+  // for (int i = 0; i < this.adjMatrix.length; i++) {
+  // for (int j = 0; j < this.adjMatrix[i].length; j++) {
+  // if (i != j) {
+  // if (this.adjMatrix[i][j] == 0) {
+  // g.addEdges(i, j, 1);
+  // }
+  // }
+  // }
+  // }
+  // return g;
+  // }
+  //
+  // public boolean subGraph(GraphMatrix g2) {
+  //
+  // if (g2.getCountNodes() > this.countNodes) {
+  // return false;
+  // }
+  ///
+  // int[][] matriz = g2.getAdjMatrix();
+  // for (int i = 0; i < this.adjMatrix.length; i++) {
+  // for (int j = 0; j < this.adjMatrix[i].length; j++) {
+  // if (matriz[i][j] == 1 && this.adjMatrix[i][j] == 0) {
+  ///
+  // return false;
+  // }
+  // }
+  // }
+  // return true;
+  // }
+
   public int getCountNodes() {
     return countNodes;
   }

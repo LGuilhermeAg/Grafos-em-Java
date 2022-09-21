@@ -73,6 +73,11 @@ class Main {
     g1.addEdge(2, 0, 15);
     System.out.println(g1);
 
+    String path = "graph4.txt";
+    Graph g2 = new Graph(path);
+    System.out.println(g2);
+    System.out.println(g2.complement());
+
     
   }
 }
