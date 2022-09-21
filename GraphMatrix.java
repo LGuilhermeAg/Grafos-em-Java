@@ -124,8 +124,8 @@ public class GraphMatrix {
     return lowestDegree;
   }
 
-  public Graph complement() {
-    Graph g = new Graph(this.countNodes);
+  public GraphMatrix complement() {
+    GraphMatrix g = new GraphMatrix(this.countNodes);
     for (int i = 0; i < this.adjMatrix.length; i++) {
       for (int j = 0; j < this.adjMatrix[i].length; j++) {
         if (i != j) {
@@ -147,7 +147,7 @@ public class GraphMatrix {
     return density;
   }
 
-  public boolean subGraph(Graph g2) {
+  public boolean subGraph(GraphMatrix g2) {
 
     if (g2.getCountNodes() > this.countNodes) {
       return false;

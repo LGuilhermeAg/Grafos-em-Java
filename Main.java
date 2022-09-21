@@ -72,5 +72,7 @@ class Main {
     g1.addEdge(0, 2, 20);
     g1.addEdge(2, 0, 15);
     System.out.println(g1);
+
+    
   }
 }
